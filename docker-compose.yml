@@ -1,0 +1,60 @@
+version: "3.8"
+
+# ============================================================
+# MITM Lab — Target Containers
+# Network: macvlan (mitm-net) — must be created first
+#
+# Pre-requisite:
+#   docker network create \
+#     --driver macvlan \
+#     --subnet=192.168.56.0/24 \
+#     --gateway=192.168.56.1 \
+#     --opt parent=vboxnet0 \
+#     mitm-net
+# ============================================================
+
+networks:
+  mitm-net:
+    external: true   # created manually with macvlan driver
+
+services:
+
+  # ----------------------------------------------------------
+  # DVWA — Damn Vulnerable Web Application
+  # Access: http://192.168.56.20
+  # Login:  admin / password (after running setup.php)
+  # ----------------------------------------------------------
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: dvwa
+    networks:
+      mitm-net:
+        ipv4_address: 192.168.56.20
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=dvwa
+
+  # ----------------------------------------------------------
+  # WebGoat — OWASP insecure web application
+  # Access: http://192.168.56.21/WebGoat
+  # Login:  create account on first visit
+  # ----------------------------------------------------------
+  webgoat:
+    image: webgoat/goat-and-wolf
+    container_name: webgoat
+    networks:
+      mitm-net:
+        ipv4_address: 192.168.56.21
+    restart: unless-stopped
+
+  # ----------------------------------------------------------
+  # Juice Shop — OWASP top 10 challenges
+  # Access: http://192.168.56.22
+  # ----------------------------------------------------------
+  juiceshop:
+    image: bkimminich/juice-shop
+    container_name: juiceshop
+    networks:
+      mitm-net:
+        ipv4_address: 192.168.56.22
+    restart: unless-stopped

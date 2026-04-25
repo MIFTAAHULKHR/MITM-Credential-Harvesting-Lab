@@ -1,0 +1,16 @@
+# Capture files — contain sensitive data, never commit
+captures/*.pcap
+captures/*.pcapng
+captures/*.log
+captures/*.json
+
+# Docker volumes
+docker/data/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
