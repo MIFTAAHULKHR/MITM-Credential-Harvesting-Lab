@@ -151,7 +151,7 @@ http://192.168.56.20/dvwa/login.php
 
 ## 🔍 Root Cause Analysis — Obstacles Encountered
 
-Full RCA documentation is in [`docs/rca.md`](docs/RCA01.md).
+Full RCA documentation is in [`rca-visualization.md`](rca-visualization.md).
 
 | # | Technical Obstacle | Root Cause Concept | Resolution |
 |---|--------------------|--------------------|------------|
