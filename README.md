@@ -148,26 +148,27 @@ http://192.168.56.20/dvwa/login.php
 ```
 
 ---
-📸 Proof of Concept (PoC) Visuals
+## 📸 Proof of Concept (PoC) Visuals
 
-Below is the visual documentation of the Man-in-the-Middle attack execution within the lab:
+Berikut adalah dokumentasi visual dari tahapan eksekusi serangan Man-in-the-Middle di dalam lab:
 
-1. Network Infrastructure Verification (Macvlan)
-![Docker Verification](capture/verfication_docker_vlan.png)
-Ensuring the attacker and target containers are running in an isolated subnet using the macvlan driver.
+**1. Verifikasi Infrastruktur Jaringan (Macvlan)**
+![Verifikasi Docker](captures/verfication%20docker%20vlan.png)
+*Memastikan attacker dan target berada dalam satu subnet terisolasi dengan driver macvlan.*
 
-2. Successful ARP Poisoning
+**2. Keberhasilan Racun ARP (ARP Spoofing)**
 ![ARP Poisoning](captures/ThePoisoning.jpeg)
-The victim's ARP table before and after the attack. The target's MAC Address (.20) is successfully manipulated to point to the attacker's machine (.10).
+*Tabel ARP korban sebelum dan sesudah serangan. MAC Address target (.20) berhasil dimanipulasi agar mengarah ke mesin penyerang (.10).*
 
-3. Victim Activity Simulation
-![Victim Login](captures/logindvwa.jpeg)
-The victim authenticates on the DVWA web interface, unaware that their network traffic is being intercepted.
+**3. Simulasi Aktivitas Korban**
+![Buka DVWA](captures/opendvwaubuntu.jpg)
+<br>
+![Login Korban](captures/logindvwa.jpeg)
+*Korban membuka halaman dan melakukan otentikasi pada web DVWA tanpa menyadari jalur jaringannya telah disadap.*
 
-4. Credential Interception (Plaintext Capture)
+**4. Intersepsi Kredensial (Plaintext Capture)**
 ![Expected Output](captures/expected_output.jpg)
-Bettercap successfully intercepts the HTTP POST request and extracts the username and password in plaintext.
-
+*Bettercap berhasil mencegat HTTP POST request dan mengekstrak username serta password dalam bentuk teks terang.*
 ---
 ## 🔍 Root Cause Analysis — Obstacles Encountered
 
