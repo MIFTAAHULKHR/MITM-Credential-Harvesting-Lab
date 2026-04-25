@@ -153,7 +153,7 @@ http://192.168.56.20/dvwa/login.php
 Berikut adalah dokumentasi visual dari tahapan eksekusi serangan Man-in-the-Middle di dalam lab:
 
 **1. Verifikasi Infrastruktur Jaringan (Macvlan)**
-![Verifikasi Docker](capture/verfication%20docker%20vlan.png)
+![Verifikasi Docker](capture/verfication_docker_vlan.png)
 *Memastikan attacker dan target berada dalam satu subnet terisolasi dengan driver macvlan.*
 
 **2. Keberhasilan Racun ARP (ARP Spoofing)**
@@ -169,6 +169,7 @@ Berikut adalah dokumentasi visual dari tahapan eksekusi serangan Man-in-the-Midd
 **4. Intersepsi Kredensial (Plaintext Capture)**
 ![Expected Output](capture/expected_output.jpg)
 *Bettercap berhasil mencegat HTTP POST request dan mengekstrak username serta password dalam bentuk teks terang.*
+
 ---
 ## 🔍 Root Cause Analysis — Obstacles Encountered
 
