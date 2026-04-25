@@ -173,7 +173,7 @@ Below is the visual documentation of the Man-in-the-Middle attack execution stag
 ---
 ## 🔍 Root Cause Analysis — Obstacles Encountered
 
-Full RCA documentation is in [`rca-visualization.md`](rca-visualization.md).
+Full RCA documentation is in [`rca-visualization.md`](root-cause-analysis/rca-visualization.md).
 
 | # | Technical Obstacle | Root Cause Concept | Resolution |
 |---|--------------------|--------------------|------------|
